@@ -9,11 +9,11 @@ const db = mysql.createConnection({
 
 db.connect(function(err) {
     if (err) throw err;
-    console.log('Message Connect')
+    
 });
 db.query('SELECT * FROM department', function (err, results) {
      if (err) throw err;
-     console.log (results)
+     
 })
 
 // inquirer prompts
@@ -36,14 +36,44 @@ inquirer
     },
     {
         type: 'input',
-        message: 'What is your email address',
-        name: 'Sediamassaquoi@gmail.com',
-    }    
-        
+        message: 'What is the name of the role?',
+        name: 'list_table_choice',
+        when: (response) => response.table_choice === 'Add Role',
+    },  
+    {
+        type: 'input',
+        message: 'What is the name of the employee?',
+        name: 'list_table_choice',
+        when: (response) => response.table_choice === 'Add Employee',
+    },    
+    {
+        type: 'input',
+        message: 'What is the name of the role?',
+        name: 'list_table_choice',
+        when: (response) => response.table_choice === 'View all Employees',
+    },    
+    {
+        type: 'input',
+        message: 'What is the name of the role?',
+        name: 'list_table_choice',
+        when: (response) => response.table_choice === 'Update Employee Role',
+    },    
+    {
+        type: 'input',
+        message: 'What is the name of the role?',
+        name: 'list_table_choice',
+        when: (response) => response.table_choice === 'View All Roles',
+    },    
+    {
+        type: 'input',
+        message: 'What is the name of the role?',
+        name: 'list_table_choice',
+        when: (response) => response.table_choice === 'View All Departments',
+    } 
+           
 ])
-.then((response) =>
-response.confirm === response.input
-
-? console.log('Success!')
-: console.log('Correct')
+.then((response) => {
+    if (response.table_choice)
+    console.log(results)
+}
 );
