@@ -14,13 +14,13 @@ VALUES
     ('electrician', 50000, 1);
 
 
-INSERT INTO employee (first_name, last_name, role_id, manager_id )
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES 
     ('Sally', 'Jameson', 2, NULL),
     ('John', 'Fagan', 3, NULL),
     ('Carol', 'Davie', 1, NULL),
-    ('Robert', 'Hill', 2, 'Sally Jameson'),
-    ('Jessica', 'Harrison', 3, 'John Fagan');
+    ('Robert', 'Hill', 2, 3),
+    ('Jessica', 'Harrison', 3, 1);
 
 
     
